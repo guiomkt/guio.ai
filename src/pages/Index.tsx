@@ -58,6 +58,11 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
       
+      {/* Agents Section */}
+      <Section id="agentes" className="bg-gradient-to-b from-guio-black to-guio-darkgray/80 relative">
+        <AgentsSection />
+      </Section>
+      
       {/* Problem Section */}
       <Section id="problema" className="bg-grid-pattern relative">
         <div className="tech-lines absolute inset-0"></div>
@@ -210,7 +215,7 @@ const Index = () => {
                 <div 
                   key={index} 
                   className={cn(
-                    "flex flex-col items-center relative z-10 opacity-0 animate-fade-in",
+                    "flex flex-col items-center relative z-10 opacity-0 animate-fade-in bg-guio-darkgray p-4 rounded-lg shadow-md md:bg-transparent md:p-0 md:shadow-none",
                   )}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
@@ -443,11 +448,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Section>
-      
-      {/* Agents Section */}
-      <Section id="agentes" className="bg-gradient-to-b from-guio-black to-guio-darkgray/80 relative">
-        <AgentsSection />
       </Section>
       
       {/* Myths Section */}

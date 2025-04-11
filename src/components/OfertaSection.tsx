@@ -29,7 +29,7 @@ const OfertaSection = () => {
         
         {/* Programa Elite 90 */}
         <div className="max-w-4xl mx-auto bg-guio-darkgray/80 backdrop-blur-md border border-guio-lightgray/30 rounded-xl p-5 sm:p-8 md:p-12 shadow-[0_5px_30px_rgba(255,0,48,0.15)] mb-10 sm:mb-16 opacity-0 animate-fade-in" style={{ animationDelay: '150ms' }}>
-          <h3 className="text-xl sm:text-2xl font-bold text-guio-white mb-4 sm:mb-6 text-center">O QUE VOCÊ RECEBE:</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-guio-white mb-4 sm:mb-6 text-center">O QUE VOCÊ RECEBE:</h3>
           
           <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
             {[
@@ -49,14 +49,14 @@ const OfertaSection = () => {
                 <div className="mt-1 w-6 h-6 rounded-full bg-guio-red/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_10px_rgba(255,0,48,0.5)]">
                   <Check className="w-4 h-4 text-guio-red" />
                 </div>
-                <p className="text-guio-white/90 text-lg">{item}</p>
+                <p className="text-guio-white/90 text-base sm:text-lg">{item}</p>
               </div>
             ))}
           </div>
           
           <div className="flex flex-col items-center gap-3 sm:gap-5 mt-6 sm:mt-8 px-2 sm:px-0">
             <Button 
-              className="bg-guio-red hover:bg-guio-red/80 text-white font-bold text-sm sm:text-base md:text-lg py-5 sm:py-6 px-4 sm:px-8 rounded-lg tech-button group shadow-[0_0_20px_rgba(255,0,48,0.3)] w-full md:w-auto"
+              className="bg-guio-red hover:bg-guio-red/80 text-white font-bold text-base sm:text-lg py-5 sm:py-6 px-4 sm:px-8 rounded-lg tech-button group shadow-[0_0_20px_rgba(255,0,48,0.3)] w-full md:w-auto"
               onClick={() => handleContactClick("QUERO GARANTIR MINHA VAGA AGORA")}
             >
               <span className="hidden sm:inline">QUERO GARANTIR MINHA VAGA AGORA</span>
@@ -72,11 +72,11 @@ const OfertaSection = () => {
         </div>
         
         {/* Garantia Tripla */}
-        <div className="max-w-5xl mx-auto mt-20 opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>
+        <div className="max-w-5xl mx-auto mt-20 opacity-0 animate-fade-in overflow-x-auto" style={{ animationDelay: '300ms' }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-gradient">
             GARANTIA TRIPLA DE RESULTADOS
           </h2>
-          <p className="text-xl text-guio-white/70 text-center mb-12">
+          <p className="text-lg text-guio-white/70 text-center mb-12">
             Sem riscos para o seu negócio
           </p>
           
@@ -96,7 +96,7 @@ const OfertaSection = () => {
               },
               {
                 title: "Garantia de Continuidade",
-                description: "Suporte técnico especializado 24/7 e atualizações constantes dos agentes.",
+                description: "Suporte técnico especializado e atualizações constantes dos agentes.",
                 icon: <ShieldPlus className="w-8 h-8 text-guio-red" />,
                 delay: 600
               }
@@ -111,8 +111,8 @@ const OfertaSection = () => {
                   <div className="w-16 h-16 rounded-full bg-guio-darkgray/80 border border-guio-red/30 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,0,48,0.2)]">
                     {guarantee.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-guio-white mb-3">{guarantee.title}</h3>
-                  <p className="text-guio-white/80">{guarantee.description}</p>
+                  <h3 className="text-lg font-bold text-guio-white mb-3">{guarantee.title}</h3>
+                  <p className="text-guio-white/80 text-base">{guarantee.description}</p>
                 </div>
               </div>
             ))}
@@ -127,7 +127,7 @@ const OfertaSection = () => {
                 <h3 className="text-2xl font-bold text-guio-white">VAGAS LIMITADAS!</h3>
               </div>
               
-              <p className="text-guio-white/80 text-center mb-4">
+              <p className="text-guio-white/80 text-center mb-4 text-base">
                 Para garantir qualidade e atenção personalizada, aceitamos apenas 5 novas implementações por mês.
               </p>
               
@@ -151,7 +151,7 @@ const OfertaSection = () => {
               
               <div className="flex justify-center px-2 sm:px-0">
                 <Button 
-                  className="bg-guio-red hover:bg-guio-red/80 text-white font-bold text-sm sm:text-base md:text-lg py-5 sm:py-6 px-4 sm:px-8 rounded-lg tech-button group shadow-[0_0_20px_rgba(255,0,48,0.3)] w-full sm:w-auto"
+                  className="bg-guio-red hover:bg-guio-red/80 text-white font-bold text-base sm:text-lg py-5 sm:py-6 px-4 sm:px-8 rounded-lg tech-button group shadow-[0_0_20px_rgba(255,0,48,0.3)] w-full sm:w-auto"
                   onClick={() => handleContactClick("QUERO GARANTIR MINHA VAGA")}
                 >
                   <span className="hidden sm:inline">QUERO GARANTIR MINHA VAGA</span>
