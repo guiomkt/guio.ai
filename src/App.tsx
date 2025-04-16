@@ -1,6 +1,4 @@
-
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+import React, { Suspense, lazy } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,14 +9,20 @@ import { useContactDialog } from "./hooks/use-contact-dialog";
 
 const queryClient = new QueryClient();
 
+const LazyToaster = lazy(() => import('@/components/ui/toaster').then(module => ({ default: module.Toaster })));
+const LazyToasterWrapper = lazy(() => import('@/components/ui/sonner').then(module => ({ default: module.ToasterWrapper })));
+
 const App = () => {
   const { isOpen, setOpen, buttonText } = useContactDialog();
   
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
+        <Suspense fallback={<div>Carregando...</div>}>
+          <LazyToaster />
+          <LazyToasterWrapper />
+        </Suspense>
+        
         <ContactDialog 
           open={isOpen} 
           onOpenChange={setOpen} 
