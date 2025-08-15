@@ -101,7 +101,7 @@ const ContactDialog = ({ open, onOpenChange, buttonText = "Conversar com agente 
       onOpenChange(false);
       
       // Redirect to WhatsApp
-      const whatsappUrl = "https://wa.me/5531973555555?text=Ol%C3%A1,%20tudo%20bem?";
+      const whatsappUrl = "https://wa.me/5531999468691?text=Ol%C3%A1,%20tudo%20bem?";
       window.open(whatsappUrl, "_blank");
       
     } catch (error) {
