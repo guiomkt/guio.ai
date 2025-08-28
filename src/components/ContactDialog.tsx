@@ -70,7 +70,7 @@ const ContactDialog = ({ open, onOpenChange, buttonText = "Conversar com agente 
     
     try {
       // Send data to webhook
-      const webhookResponse = await fetch("https://hook.2be.com.br/webhook/9097ea84-506b-49bf-9d54-d047e18610ac", {
+      const webhookResponse = await fetch("https://n8nweb.2be.com.br/webhook/d90b1a57-ac3c-4070-be9f-8c770cbf0a85", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
