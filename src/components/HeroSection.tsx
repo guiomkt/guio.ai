@@ -115,8 +115,8 @@ const HeroSection = () => {
               </div>
               
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-guio-white">Aumente sua </span>
-                <span className="text-guio-white block mt-1 sm:mt-2">produtividade com </span>
+                <span className="text-guio-white">Aumente suas </span>
+                <span className="text-guio-white block mt-1 sm:mt-2">vendas com </span>
                 <span className="text-gradient-red block">
                   <TypewriterEffect text="agentes de IA" delay={100} />
                 </span>
