@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Section from "@/components/Section";
@@ -8,13 +8,15 @@ import ProblemCard from "@/components/ProblemCard";
 import { Button } from "@/components/ui/button";
 import TypewriterEffect from "@/components/TypewriterEffect";
 import ResultCard from "@/components/ResultCard";
-import AgentsSection from "@/components/AgentsSection";
-import MythsSection from "@/components/MythsSection";
-import OfertaSection from "@/components/OfertaSection";
-import AboutSection from "@/components/AboutSection";
-import ComparativoSection from "@/components/ComparativoSection";
-import FAQSection from "@/components/FAQSection";
-import FinalCTA from "@/components/FinalCTA";
+
+// Lazy loading dos componentes below-the-fold para melhor performance
+const AgentsSection = lazy(() => import("@/components/AgentsSection"));
+const MythsSection = lazy(() => import("@/components/MythsSection"));
+const OfertaSection = lazy(() => import("@/components/OfertaSection"));
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ComparativoSection = lazy(() => import("@/components/ComparativoSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const FinalCTA = lazy(() => import("@/components/FinalCTA"));
 import { 
   Users, 
   UserMinus, 
@@ -60,7 +62,9 @@ const Index = () => {
       
       {/* Agents Section */}
       <Section id="agentes" className="bg-gradient-to-b from-guio-black to-guio-darkgray/80 relative">
-        <AgentsSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <AgentsSection />
+        </Suspense>
       </Section>
       
       {/* Problem Section */}
@@ -279,12 +283,16 @@ const Index = () => {
       
       {/* About Company Section */}
       <Section id="empresa" className="relative">
-        <AboutSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <AboutSection />
+        </Suspense>
       </Section>
       
       {/* Comparison Section - Garantindo que está com id correto */}
       <Section id="comparativo" className="bg-guio-black relative py-24">
-        <ComparativoSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <ComparativoSection />
+        </Suspense>
       </Section>
       
       {/* Results Section */}
@@ -451,16 +459,22 @@ const Index = () => {
       </Section>
       
       {/* Myths Section */}
-      <MythsSection />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+        <MythsSection />
+      </Suspense>
       
       {/* Offer Section */}
       <Section id="oferta" className="bg-guio-darkgray py-24">
-        <OfertaSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <OfertaSection />
+        </Suspense>
       </Section>
       
       {/* Final CTA Section - New section added before FAQ */}
       <Section id="cta-final" className="bg-guio-black relative pt-0 pb-0">
-        <FinalCTA />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <FinalCTA />
+        </Suspense>
       </Section>
       
       {/* FAQ Section */}
@@ -469,7 +483,9 @@ const Index = () => {
           <div className="absolute top-20 right-40 w-72 h-72 bg-guio-red/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-40 left-20 w-80 h-80 bg-guio-red/5 rounded-full blur-3xl"></div>
         </div>
-        <FAQSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-guio-red">Carregando...</div></div>}>
+          <FAQSection />
+        </Suspense>
       </Section>
       
       <Footer />

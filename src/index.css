@@ -402,4 +402,28 @@
   .animate-accordion-up {
     animation: accordion-up 0.3s ease-out;
   }
+  
+  /* Respeitar preferências de movimento reduzido para acessibilidade e performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .animate-spin-slow,
+    .animate-spin-slow-reverse,
+    .animate-spin-medium,
+    .animate-spin-medium-reverse,
+    .animate-pulse-slow,
+    .animate-pulse-slower,
+    .animate-pulse-medium,
+    .animate-float,
+    .animate-fade-in {
+      animation: none !important;
+    }
+  }
 }
