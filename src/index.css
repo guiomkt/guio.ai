@@ -403,6 +403,12 @@
     animation: accordion-up 0.3s ease-out;
   }
   
+  /* Content Visibility API - Otimização de renderização para seções below-the-fold */
+  section[id]:not([id="hero"]) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+  
   /* Respeitar preferências de movimento reduzido para acessibilidade e performance */
   @media (prefers-reduced-motion: reduce) {
     *,

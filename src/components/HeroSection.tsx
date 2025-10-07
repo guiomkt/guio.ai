@@ -42,24 +42,37 @@ const HeroSection = () => {
       });
     }
     
+    // Otimização: Agrupar todas as leituras do DOM no início do frame
+    // Isso evita reflow forçado (layout thrashing)
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // FASE 1: TODAS as leituras do DOM primeiro (evita reflow)
+      const width = canvas.width;
+      const height = canvas.height;
       
+      // FASE 2: Cálculos e atualizações de estado
       particles.forEach((particle) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
         
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
-        
+        // Usar as variáveis cacheadas ao invés de canvas.width/height
+        if (particle.x < 0) particle.x = width;
+        if (particle.x > width) particle.x = 0;
+        if (particle.y < 0) particle.y = height;
+        if (particle.y > height) particle.y = 0;
+      });
+      
+      // FASE 3: TODAS as escritas/renderizações depois
+      ctx.clearRect(0, 0, width, height);
+      
+      // Desenhar partículas
+      particles.forEach((particle) => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 0, 48, ${particle.opacity})`;
         ctx.fill();
       });
       
+      // Desenhar conexões entre partículas
       particles.forEach((particleA) => {
         particles.forEach((particleB) => {
           const dx = particleA.x - particleB.x;
@@ -97,6 +110,7 @@ const HeroSection = () => {
       <canvas 
         ref={canvasRef} 
         className="absolute inset-0 w-full h-full z-0"
+        style={{ willChange: 'contents' }}
       />
       
       <div className="absolute top-[15%] right-[10%] w-48 sm:w-64 h-48 sm:h-64 bg-guio-red/20 rounded-full blur-3xl animate-pulse-slow z-0"></div>
